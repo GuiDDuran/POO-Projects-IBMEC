@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
-#include <thread>
 
 using namespace std;
 
@@ -12,10 +11,6 @@ vector<string> endereco;
 vector<string> telefone;
 vector<int> saldo;
 
-void limparTela() {
-    this_thread::sleep_for(chrono::seconds(3));
-    system("cls");
-}
 
 int achar_id(vector<string> x, string nome){
     for (size_t i = 0; i < x.size(); i++){
@@ -27,8 +22,6 @@ int achar_id(vector<string> x, string nome){
 }
 
 void Cadastro(){
-    limparTela();
-
     cout << "Seja bem vindo ao CADASTRO DE CLIENTE\n" << endl;
 
     string Nome, Cpf, Endereco, Telefone;
@@ -59,8 +52,6 @@ void Cadastro(){
 
 
 void excluir(){
-    limparTela();
-
     cout << "Seja bem vindo á EXCLUSÃO DE CLIENTE\n" << endl;
     cout << "Digite o nome do cliente que você deseja excluir: ";
 
@@ -82,7 +73,6 @@ void excluir(){
 }
 
 void editar(){
-    limparTela();
     cout << "Seja bem vindo á EDIÇÃO DE CLIENTE\n" << endl;
     cout << "Digite o nome do cliente que você deseja editar: ";
 
@@ -96,34 +86,29 @@ void editar(){
         string NovoNome, NovoCPF, NovoEndereco, NovoTelefone;
 
         while (loop == true) {
-            limparTela();
             cout << "1 - Nome\n" << "2 - CPF\n" << "3 - Endereço\n" << "4 - Telefone\n" << "5 - Voltar para o menu\n" << endl;
             cout << "Digite o número da opção que deseja alterar: " << endl;
             cin >> mudanca;
             switch(mudanca) {
                 case '1':
-                    limparTela();
                     cout << "Digite o novo nome: " << endl;
                     cin >> NovoNome;
                     nome.at(id) = NovoNome;
                     cout << endl << "Nome alterado com sucesso!" << endl;
                     break;
                 case '2':
-                    limparTela();
                     cout << "Digite o novo CPF: " << endl;
                     cin >> NovoCPF;
                     cpf.at(id) = NovoCPF;
                     cout << endl << "CPF alterado com sucesso!" << endl;
                     break;
                 case '3':
-                    limparTela();
                     cout << "Digite o novo endereço: " << endl;
                     cin >> NovoEndereco;
                     endereco.at(id) = NovoEndereco;
                     cout << endl << "Endereço alterado com sucesso!" << endl;
                     break;
                 case '4':
-                    limparTela();
                     cout << "Digite o novo telefone: " << endl;
                     cin >> NovoTelefone;
                     telefone.at(id) = NovoTelefone;
@@ -143,7 +128,6 @@ void editar(){
 }
 
 void saque(int id){
-    limparTela();
     cout << "Seja bem vindo ao SAQUE\n" << endl;
     cout << "Digite o valor que deseja sacar: ";
     int valor_saque;
@@ -159,7 +143,6 @@ void saque(int id){
 }
 
 void deposito(int id){
-    limparTela();
     cout << "Seja bem vindo ao DEPOSITO\n" << endl;
     cout << "Digite abaixo o valor que deseja depositar e ensira o dinheiro ou cheque na maquininha: ";
     int valor_deposito;
@@ -169,13 +152,11 @@ void deposito(int id){
 }
 
 void mostraSaldo(int id){
-    limparTela();
     cout << "Seja bem vindo á CONSULTA DE SALDO\n" << endl;
-    cout << "O saldo disponível nesta conta é: " << saldo[id];
+    cout << "O saldo disponível nesta conta é: " << saldo[id] << endl;
 }
 
 void operacoesBancarias(){
-    limparTela();
     cout << "Seja bem vindo ás OPERAÇÕES BANCÁRIAS\n" << endl;
     cout << "Digite o nome do cliente que deseja realizar alguma operação: ";
     string cliente_no_caixa;
@@ -184,7 +165,6 @@ void operacoesBancarias(){
     if (id != -1){
         bool flag = true;
         while (flag){ 
-            limparTela();
             cout << "1 - Realizar saque\n" << "2 - Realizar depósito\n" << "3 - Mostrar saldo\n" << "4 - Voltar para o menu\n" << endl;
             cout << "Digite uma das opções acima: " << endl;
             char operacao;
@@ -212,7 +192,6 @@ void operacoesBancarias(){
 
 
 void menu(){
-    limparTela();
     cout << "Seja bem vindo ao MENU do sistema bancário\n" << endl;
     cout << "1 - Adicionar cliente\n" << "2 - Excluir cliente\n" << "3 - Editar cliente\n" << "4 - Operações bancárias\n" << "5 - Encerrar programa\n" << endl;
     cout << "Digite uma das opções acima: ";

@@ -16,4 +16,5 @@ int main(){
     int cases;
     cin >> cases;
     cout << fibonacci(cases);
+    return 0;
 }
